@@ -30,7 +30,7 @@ do
   if [ $? -ne 0 ]
   then
     echo " $package is not installed , go ing to install it ."
-    dnf $package mysql -y
+    dnf install $package -y
     VALIDATE $? "Installing $package"
   else
     echo "$package is already installed..nothing to do"
