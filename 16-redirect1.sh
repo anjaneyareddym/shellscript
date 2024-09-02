@@ -15,7 +15,7 @@ N="\e[0m"
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo "$R Please run this script with root priveleges $N" &>>$LOG_FILE
+        echo -e"$R Please run this script with root priveleges $N" &>>$LOG_FILE
         exit 1
     fi
 }
@@ -30,7 +30,7 @@ VALIDATE(){
     fi
 }
 USAGE(){
-   echo  " $R USAGE $N: sudo sh 16.redirect.sh package1 package 2 "
+   echo  -e " $R USAGE $N: sudo sh 16.redirect.sh package1 package 2 "
    exit 1
 }
 CHECK_ROOT
@@ -43,7 +43,7 @@ do
   dnf list installed $package &>>$LOG_FILE
   if [ $? -ne 0 ]
   then
-    echo " $package is not installed ,$R go ing to install it . $N" &>>$LOG_FILE
+    echo -e " $package is not installed ,$R go ing to install it . $N" &>>$LOG_FILE
     dnf install $package -y
     VALIDATE $? "Installing $package"
   else
