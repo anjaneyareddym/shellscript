@@ -6,6 +6,8 @@ SCRIPT_NAME=$(echo $0 | cut -d "." -f1) #$0 file name
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
+
+USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 Y="\e[33m"
@@ -33,7 +35,7 @@ USAGE(){
    echo  -e " $R USAGE $N: sudo sh 16.redirect.sh package1 package 2 "
    exit 1
 }
-echo "Script started executed :$(date)"
+echo "Script started executed :$(date)"&>>$LOG_FILE
 CHECK_ROOT
 if [ $# -eq 0 ] 
 then
