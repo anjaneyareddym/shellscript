@@ -33,6 +33,7 @@ USAGE(){
    echo  -e " $R USAGE $N: sudo sh 16.redirect.sh package1 package 2 "
    exit 1
 }
+echo "Script started executed :$(date)"
 CHECK_ROOT
 if [ $# -eq 0 ] 
 then
